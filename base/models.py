@@ -76,3 +76,12 @@ class Home(models.Model):
     discription = models.TextField(max_length=150, blank=True)
     watch_video = models.URLField()
     image = models.ImageField()
+
+
+class Testimonials(models.Model):
+    name = models.CharField(max_length=30)
+    job = models.CharField(max_length=30)
+    comment = models.TextField(max_length=250)
+    image = models.ImageField()
+    is_visible = models.BooleanField(default=True)
+

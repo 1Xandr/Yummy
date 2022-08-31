@@ -39,7 +39,7 @@
             <div class="row gy-5">
                 {% for dish in dish %}
                   <div class="col-lg-4 menu-item filter{{ dish.categories.pk }}">
-                    <a href="{{ dish.image }}" class="glightbox"><img src="{{ dish.image }}" class="menu-img img-fluid" alt=""></a>
+                    <a href="{{ dish.image.url }}" class="glightbox"><img src="{{ dish.image.url }}" class="menu-img img-fluid" alt=""></a>
                     <h4>{{ dish.name }}</h4>
                     <p class="ingredients">
                       {{ dish.discription }}
