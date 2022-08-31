@@ -1,0 +1,16 @@
+from django.contrib import admin
+from .models import Categories, Dishes, About_Us, Stats, Why_us, Home
+
+# Register your models here.
+admin.site.register(Categories)
+admin.site.register(About_Us)
+# admin.site.register(Dishes)
+admin.site.register(Stats)
+admin.site.register(Why_us)
+admin.site.register(Home)
+
+
+@admin.register(Dishes)
+class DishAdmin(admin.ModelAdmin):
+    # list_filter = ('categories', )
+    prepopulated_fields = {'slug': ('name', ), }
