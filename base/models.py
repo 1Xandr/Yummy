@@ -85,3 +85,30 @@ class Testimonials(models.Model):
     image = models.ImageField()
     is_visible = models.BooleanField(default=True)
 
+
+class Event(models.Model):
+    name = models.CharField(max_length=50)
+    price = models.PositiveIntegerField()
+    discription = models.TextField(max_length=300)
+    position = models.PositiveIntegerField()
+    is_visible = models.BooleanField(default=True)
+    image = models.ImageField()
+
+    class Meta:
+        ordering = ('position', )
+
+
+class Chefs(models.Model):
+    name = models.CharField(max_length=50)
+    job = models.CharField(max_length=30)
+    image = models.ImageField()
+    comment = models.TextField(max_length=500)
+    position = models.PositiveIntegerField()
+
+    twitter = models.URLField(blank=True)
+    facebook = models.URLField(blank=True)
+    instagram = models.URLField(blank=True)
+    linkedin = models.URLField(blank=True)
+
+    class Meta:
+        ordering = ('position', )
