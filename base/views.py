@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from .models import Categories, Dishes, About_Us, Stats, Why_us, Home, Testimonials, Event, Chefs
+from .models import Categories, Dishes, About_Us, Stats, Why_us, Home, Testimonials, Event, Chefs, Gallery
 
 
 # Create your views here.
@@ -14,6 +14,7 @@ def base_view(request):
     testimonials = Testimonials.objects.filter(is_visible=True)
     event = Event.objects.filter(is_visible=True)
     chefs = Chefs.objects.all()
+    gallery = Gallery.objects.all()
 
     data = {
         'categories': categories,
@@ -24,6 +25,7 @@ def base_view(request):
         'home': home,
         'testimonials': testimonials,
         'event': event,
-        'chefs' : chefs,
+        'chefs': chefs,
+        'gallery': gallery,
     }
     return render(request, 'main.html', context=data)

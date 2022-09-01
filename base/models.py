@@ -112,3 +112,11 @@ class Chefs(models.Model):
 
     class Meta:
         ordering = ('position', )
+
+
+class Gallery(models.Model):
+    image = models.ImageField()
+    position = models.PositiveIntegerField()
+
+    class Meta:
+        ordering = ('position', )

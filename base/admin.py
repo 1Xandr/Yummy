@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Categories, Dishes, About_Us, Stats, Why_us, Home, Testimonials, Event, Chefs
+from .models import Categories, Dishes, About_Us, Stats, Why_us, Home, Testimonials, Event, Chefs, Gallery
 
 # Register your models here.
 admin.site.register(Categories)
@@ -11,6 +11,7 @@ admin.site.register(Home)
 admin.site.register(Testimonials)
 admin.site.register(Event)
 admin.site.register(Chefs)
+admin.site.register(Gallery)
 
 
 @admin.register(Dishes)
