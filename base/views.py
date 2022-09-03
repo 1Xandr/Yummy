@@ -16,6 +16,9 @@ def base_view(request):
     chefs = Chefs.objects.all()
     gallery = Gallery.objects.all()
 
+    for item in categories:
+        item.dish = Dishes.objects.filter(is_visible=True).filter(categories=item.pk)
+
     data = {
         'categories': categories,
         'dish': dish,
