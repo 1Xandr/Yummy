@@ -1,3 +1,4 @@
+from django.core.validators import RegexValidator
 from django.db import models
 import uuid
 
@@ -120,3 +121,21 @@ class Gallery(models.Model):
 
     class Meta:
         ordering = ('position', )
+
+
+class UserReservation(models.Model):
+    name = models.CharField(max_length=50)
+    phone = models.CharField(max_length=15)
+    persons = models.PositiveSmallIntegerField()
+    message = models.TextField(max_length=500, blank=True)
+    admin_date = models.DateTimeField(auto_now_add=True)
+    date = models.DateField()
+    time = models.TimeField()
+    email = models.EmailField()
+    is_processed = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ('-date', '-is_processed', )
+
+    def __str__(self):
+        return f'{self.name}, {self.phone}, {self.persons}, {self.email}, {self.date}, {self.time}, {self.message}'
