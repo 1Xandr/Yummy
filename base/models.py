@@ -135,7 +135,26 @@ class UserReservation(models.Model):
     is_processed = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ('-date', '-is_processed', )
+        ordering = ('-admin_date', '-is_processed', )
 
     def __str__(self):
         return f'{self.name}, {self.phone}, {self.persons}, {self.email}, {self.date}, {self.time}, {self.message}'
+
+
+class Contact(models.Model):
+    our_address = models.CharField(max_length=200)
+    call_us = models.CharField(max_length=40)
+    email = models.CharField(max_length=50)
+    opening = models.CharField(max_length=70)
+
+
+class UserContact(models.Model):
+    name = models.CharField(max_length=40)
+    email = models.EmailField()
+    subject = models.CharField(max_length=70)
+    message = models.TextField(max_length=600)
+    admin_date = models.DateTimeField(auto_now_add=True)
+    is_processed = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ('-admin_date', '-is_processed', )

@@ -1,5 +1,5 @@
 from django import forms
-from .models import UserReservation
+from .models import UserReservation, UserContact
 
 
 class UserReservationForm(forms.ModelForm):
@@ -84,3 +84,48 @@ class UserReservationForm(forms.ModelForm):
     class Meta:
         model = UserReservation
         fields = ('name', 'phone', 'persons', 'message', 'time', 'date', 'email')
+
+
+class UserContactForm(forms.ModelForm):
+    name = forms.CharField(
+        max_length=40,
+        widget=forms.TextInput(attrs={
+            'type': "text",
+            'name': "name",
+            'class': "form-control",
+            'id': "name",
+            'placeholder': "Your Name",
+        })
+    )
+    email = forms.EmailField(
+        widget=forms.EmailInput(attrs={
+            'type': "email",
+            'name': "email",
+            'class': "form-control",
+            'id': "email",
+            'placeholder': "Your Email",
+        })
+    )
+    subject = forms.CharField(
+        max_length=70,
+        widget=forms.TextInput(attrs={
+            'type': "text",
+            'name': "subject",
+            'class': "form-control",
+            'id': "subject",
+            'placeholder': "Subject",
+        })
+    )
+    message = forms.CharField(
+        max_length=500,
+        widget=forms.Textarea(attrs={
+            'name': "message",
+            'class': "form-control",
+            'placeholder': "Message",
+            'rows': "5",
+        })
+    )
+
+    class Meta:
+        model = UserContact
+        fields = ('name', 'message', 'email', 'subject')
