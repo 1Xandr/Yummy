@@ -8,13 +8,13 @@ from .forms import UserReservationForm, UserContactForm
 def base_view(request):
 
     if request.method == 'POST':
-        reservation = UserReservationForm(request.POST, prefix='reservation')
-        contact = UserContactForm(request.POST, prefix='contact')
+        reservation = UserReservationForm(request.POST)
+        contact_form = UserContactForm(request.POST)
         if reservation.is_valid():
             reservation.save()
             return redirect('/')
-        if contact.is_valid():
-            contact.save()
+        if contact_form.is_valid():
+            contact_form.save()
             return redirect('/')
 
     categories = Categories.objects.filter(is_visible=True)
