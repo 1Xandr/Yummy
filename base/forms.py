@@ -27,8 +27,8 @@ class UserReservationForm(forms.ModelForm):
             'data-msg': "Please enter at least 4 chars",
         })
     )
-    email = forms.EmailField(
-        widget=forms.EmailInput(attrs={
+    email = forms.CharField(
+        widget=forms.TextInput(attrs={
             'type': "email",
             'name': "email",
             'class': "form-control",
@@ -49,8 +49,9 @@ class UserReservationForm(forms.ModelForm):
             'data-msg': "Please enter at least 1 chars",
         })
     )
-    date = forms.DateField(
-        widget=forms.DateInput(attrs={
+    date = forms.CharField(
+        max_length=10,
+        widget=forms.TextInput(attrs={
             'type': "text",
             'name': "date",
             'class': "form-control",
@@ -60,8 +61,9 @@ class UserReservationForm(forms.ModelForm):
             'data-msg': "Please enter at least 4 chars",
         })
     )
-    time = forms.TimeField(
-        widget=forms.TimeInput(attrs={
+    time = forms.CharField(
+        max_length= 10,
+        widget=forms.TextInput(attrs={
             'type': "text",
             'name': "time",
             'class': "form-control",
@@ -97,8 +99,8 @@ class UserContactForm(forms.ModelForm):
             'placeholder': "Your Name",
         })
     )
-    email = forms.EmailField(
-        widget=forms.EmailInput(attrs={
+    email = forms.CharField(
+        widget=forms.TextInput(attrs={
             'type': "email",
             'name': "email",
             'class': "form-control",

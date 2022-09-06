@@ -129,9 +129,9 @@ class UserReservation(models.Model):
     persons = models.PositiveSmallIntegerField()
     message = models.TextField(max_length=500, blank=True)
     admin_date = models.DateTimeField(auto_now_add=True)
-    date = models.DateField()
-    time = models.TimeField()
-    email = models.EmailField()
+    date = models.CharField(max_length=10)
+    time = models.CharField(max_length=10)
+    email = models.CharField(max_length=70)
     is_processed = models.BooleanField(default=False)
 
     class Meta:
@@ -150,7 +150,7 @@ class Contact(models.Model):
 
 class UserContact(models.Model):
     name = models.CharField(max_length=40)
-    email = models.EmailField()
+    email = models.CharField(max_length=70)
     subject = models.CharField(max_length=70)
     message = models.TextField(max_length=600)
     admin_date = models.DateTimeField(auto_now_add=True)
