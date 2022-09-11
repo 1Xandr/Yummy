@@ -34,6 +34,9 @@ def base_view(request):
     for item in categories:
         item.dish = Dishes.objects.filter(is_visible=True).filter(categories=item.pk)
 
+    for item in testimonials:
+        item.stars = range(item.stars)
+
     data = {
         'categories': categories,
         'dish': dish,

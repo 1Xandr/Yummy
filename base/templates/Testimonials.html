@@ -23,7 +23,9 @@
                       <h3>{{ testimonials.name }}</h3>
                       <h4>{{ testimonials.job }}</h4>
                       <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                          {% for stars in testimonials.stars %}
+                        <i class="bi bi-star-fill"></i>
+                              {% endfor %}
                       </div>
                     </div>
                   </div>

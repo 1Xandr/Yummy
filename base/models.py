@@ -85,6 +85,7 @@ class Testimonials(models.Model):
     comment = models.TextField(max_length=250)
     image = models.ImageField()
     is_visible = models.BooleanField(default=True)
+    stars = models.SmallIntegerField(default=5)
 
 
 class Event(models.Model):
