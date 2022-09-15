@@ -2,6 +2,7 @@ from django.core.validators import RegexValidator
 from django.db import models
 import uuid
 
+
 # Create your models here.
 
 
@@ -35,7 +36,7 @@ class Dishes(models.Model):
 
     class Meta:
         ordering = ('position', 'price',)
-        index_together = (('id', 'slug'), )
+        index_together = (('id', 'slug'),)
 
 
 class About_Us(models.Model):
@@ -55,7 +56,7 @@ class Stats(models.Model):
     position = models.SmallIntegerField(unique=True)
 
     class Meta:
-        ordering = ('position', )
+        ordering = ('position',)
 
 
 class Why_us(models.Model):
@@ -97,7 +98,7 @@ class Event(models.Model):
     image = models.ImageField()
 
     class Meta:
-        ordering = ('position', )
+        ordering = ('position',)
 
 
 class Chefs(models.Model):
@@ -113,7 +114,7 @@ class Chefs(models.Model):
     linkedin = models.URLField(blank=True)
 
     class Meta:
-        ordering = ('position', )
+        ordering = ('position',)
 
 
 class Gallery(models.Model):
@@ -121,7 +122,7 @@ class Gallery(models.Model):
     position = models.PositiveIntegerField()
 
     class Meta:
-        ordering = ('position', )
+        ordering = ('position',)
 
 
 class UserReservation(models.Model):
@@ -136,7 +137,7 @@ class UserReservation(models.Model):
     is_processed = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ('-admin_date', '-is_processed', )
+        ordering = ('-admin_date', '-is_processed',)
 
     def __str__(self):
         return f'{self.name}, {self.phone}, {self.persons}, {self.email}, {self.date}, {self.time}, {self.message}'
@@ -157,5 +158,8 @@ class UserContact(models.Model):
     admin_date = models.DateTimeField(auto_now_add=True)
     is_processed = models.BooleanField(default=False)
 
+    def __str__(self):
+        return f'{self.name}, {self.email}, {self.subject}, {self.message}'
+
     class Meta:
-        ordering = ('-admin_date', '-is_processed', )
+        ordering = ('-admin_date', '-is_processed',)
